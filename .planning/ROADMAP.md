@@ -81,12 +81,11 @@ Plans:
   3. Form shows meaningful error messages for invalid inputs (e.g., learning rate out of range)
   4. User can submit training configuration to create a new training job
   5. Submitted training job is persisted to Neon database with unique ID
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
-- [ ] 04-03: TBD
+- [ ] 04-01-PLAN.md — Schema migration (add batchSize), install form deps, create Zod validation schema
+- [ ] 04-02-PLAN.md — Training config form with RHF + Zod validation, Server Action, and model card navigation
 
 ### Phase 5: Training Monitor
 **Goal**: User watches real-time training progress with realistic loss curves and status transitions
@@ -151,7 +150,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 1. Foundation & Database | 2/2 | ✓ Complete | 2026-02-15 |
 | 2. Dashboard & Welcome | 2/2 | ✓ Complete | 2026-02-15 |
 | 3. Model Discovery | 3/3 | ✓ Complete | 2026-02-15 |
-| 4. Training Configuration | 0/TBD | Not started | - |
+| 4. Training Configuration | 0/2 | Not started | - |
 | 5. Training Monitor | 0/TBD | Not started | - |
 | 6. Deployments | 0/TBD | Not started | - |
 | 7. Polish & Responsive | 0/TBD | Not started | - |
