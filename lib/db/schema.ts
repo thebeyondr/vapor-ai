@@ -24,3 +24,17 @@ export const trainingMetrics = pgTable("training_metrics", {
 }, (table) => ({
   jobIdIdx: index("training_metrics_job_id_idx").on(table.jobId),
 }))
+
+export const deployments = pgTable("deployments", {
+  id: serial("id").primaryKey(),
+  jobId: integer("job_id").notNull().references(() => trainingJobs.id, { onDelete: "restrict" }),
+  modelName: varchar("model_name", { length: 255 }).notNull(),
+  version: varchar("version", { length: 50 }).notNull(),
+  status: text("status", { enum: ["deploying", "active", "paused", "failed"] }).notNull().default("deploying"),
+  endpoint: varchar("endpoint", { length: 500 }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull().$onUpdate(() => new Date()),
+}, (table) => ({
+  jobIdIdx: index("deployments_job_id_idx").on(table.jobId),
+  statusIdx: index("deployments_status_idx").on(table.status),
+}))
