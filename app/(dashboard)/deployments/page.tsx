@@ -2,9 +2,8 @@ import { getAllDeployments } from "@/lib/db/queries"
 import { generateInferenceMetrics } from "@/lib/services/inference-simulator"
 import { DeploymentsTable } from "./components/deployments-table"
 import type { DeploymentRow } from "./components/deployment-columns"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { EmptyState } from "../components/empty-state"
+import { Rocket } from "lucide-react"
 
 export default async function DeploymentsPage() {
   const deployments = await getAllDeployments()
@@ -34,19 +33,13 @@ export default async function DeploymentsPage() {
       </div>
 
       {deployments.length === 0 ? (
-        <Card>
-          <CardHeader>
-            <CardTitle>No deployments yet</CardTitle>
-            <CardDescription>
-              Deploy a completed training job to start serving models
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button asChild variant="outline">
-              <Link href="/training/jobs">View training jobs</Link>
-            </Button>
-          </CardContent>
-        </Card>
+        <EmptyState
+          icon={Rocket}
+          title="No deployments yet"
+          description="Deploy a completed training job to start serving inference requests."
+          actionLabel="View Training Jobs"
+          actionHref="/training/jobs"
+        />
       ) : (
         <DeploymentsTable data={deploymentsWithMetrics} />
       )}

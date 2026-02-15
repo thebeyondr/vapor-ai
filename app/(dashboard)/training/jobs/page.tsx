@@ -4,8 +4,9 @@ import { StatusBadge } from "@/app/(dashboard)/components/status-badge"
 import { formatDistanceToNow } from "date-fns"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Plus } from "lucide-react"
+import { Plus, BrainCircuit } from "lucide-react"
 import { JobActions } from "./job-actions"
+import { EmptyState } from "@/app/(dashboard)/components/empty-state"
 
 export default async function TrainingJobsPage() {
   const jobs = await getAllJobs()
@@ -28,22 +29,13 @@ export default async function TrainingJobsPage() {
       </div>
 
       {jobs.length === 0 ? (
-        <Card>
-          <CardHeader>
-            <CardTitle>No training jobs yet</CardTitle>
-            <CardDescription>
-              Create your first training job to get started
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button asChild variant="outline">
-              <Link href="/training/configure">
-                <Plus className="mr-2 h-4 w-4" />
-                Create Training Job
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
+        <EmptyState
+          icon={BrainCircuit}
+          title="No training jobs yet"
+          description="Create your first training job to fine-tune models on your data."
+          actionLabel="New Training Job"
+          actionHref="/training/configure"
+        />
       ) : (
         <div className="grid gap-4">
           {jobs.map((job) => (

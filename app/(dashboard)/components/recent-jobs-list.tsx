@@ -1,7 +1,9 @@
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { StatusBadge } from "./status-badge"
+import { EmptyState } from "./empty-state"
 import { trainingJobs } from "@/lib/db/schema"
+import { FolderOpen } from "lucide-react"
 
 type TrainingJob = typeof trainingJobs.$inferSelect
 
@@ -21,22 +23,13 @@ function formatRelativeTime(date: Date): string {
 export function RecentJobsList({ jobs }: { jobs: TrainingJob[] }) {
   if (jobs.length === 0) {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>Recent Training Jobs</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-center py-8 text-muted-foreground">
-            <p className="mb-4">No training jobs yet</p>
-            <Link
-              href="/training"
-              className="text-primary hover:underline"
-            >
-              Start your first training job
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
+      <EmptyState
+        icon={FolderOpen}
+        title="No training jobs yet"
+        description="Start your first training job to fine-tune a model on your data."
+        actionLabel="Start Training"
+        actionHref="/training"
+      />
     )
   }
 
