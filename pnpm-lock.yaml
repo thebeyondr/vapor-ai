@@ -11,6 +11,9 @@ importers:
       '@huggingface/hub':
         specifier: ^2.9.0
         version: 2.9.0
+      '@huggingface/inference':
+        specifier: ^4.13.12
+        version: 4.13.12
       '@neondatabase/serverless':
         specifier: ^1.0.2
         version: 1.0.2
@@ -784,6 +787,14 @@ packages:
     resolution: {integrity: sha512-g0UKVcPq0ULnakTB6ZGPNTHBVj9nHgsbukbI/gCp1a7uAp8/Jp8fxrKbNqJgeMiLLJcuQGd/4HXJLUYhjd5xxw==}
     engines: {node: '>=18'}
     hasBin: true
+
+  '@huggingface/inference@4.13.12':
+    resolution: {integrity: sha512-fmv4VnQ0u1lUDPEp8iuUe+5awXIoBFGnemBBmuAKEdYmwPhLFkBHSIDPML8OPkf9rUQ4gM7ANqE5w3AqoA2hQw==}
+    engines: {node: '>=18'}
+
+  '@huggingface/jinja@0.5.5':
+    resolution: {integrity: sha512-xRlzazC+QZwr6z4ixEqYHo9fgwhTZ3xNSdljlKfUFGZSdlvt166DljRELFUfFytlYOYvo3vTisA/AFOuOAzFQQ==}
+    engines: {node: '>=18'}
 
   '@huggingface/tasks@0.19.85':
     resolution: {integrity: sha512-4s5+GV257GRmT7Hrt190KlGsuq53IwFtCBj+J+bvoeIpn119589wY7WY/LS5VJMLwu7pUQnouLmMKeEOKO4BSQ==}
@@ -4535,6 +4546,13 @@ snapshots:
       '@huggingface/tasks': 0.19.85
     optionalDependencies:
       cli-progress: 3.12.0
+
+  '@huggingface/inference@4.13.12':
+    dependencies:
+      '@huggingface/jinja': 0.5.5
+      '@huggingface/tasks': 0.19.85
+
+  '@huggingface/jinja@0.5.5': {}
 
   '@huggingface/tasks@0.19.85': {}
 
