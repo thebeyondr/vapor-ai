@@ -108,51 +108,51 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FNDN-01 | Phase ? | Pending |
-| FNDN-02 | Phase ? | Pending |
-| FNDN-03 | Phase ? | Pending |
-| FNDN-04 | Phase ? | Pending |
-| FNDN-05 | Phase ? | Pending |
-| DASH-01 | Phase ? | Pending |
-| DASH-02 | Phase ? | Pending |
-| DASH-03 | Phase ? | Pending |
-| DASH-04 | Phase ? | Pending |
-| DASH-05 | Phase ? | Pending |
-| WELC-01 | Phase ? | Pending |
-| WELC-02 | Phase ? | Pending |
-| WELC-03 | Phase ? | Pending |
-| MODL-01 | Phase ? | Pending |
-| MODL-02 | Phase ? | Pending |
-| MODL-03 | Phase ? | Pending |
-| MODL-04 | Phase ? | Pending |
-| MODL-05 | Phase ? | Pending |
-| TRCF-01 | Phase ? | Pending |
-| TRCF-02 | Phase ? | Pending |
-| TRCF-03 | Phase ? | Pending |
-| TRCF-04 | Phase ? | Pending |
-| TRCF-05 | Phase ? | Pending |
-| TRMN-01 | Phase ? | Pending |
-| TRMN-02 | Phase ? | Pending |
-| TRMN-03 | Phase ? | Pending |
-| TRMN-04 | Phase ? | Pending |
-| TRMN-05 | Phase ? | Pending |
-| TRMN-06 | Phase ? | Pending |
-| DEPL-01 | Phase ? | Pending |
-| DEPL-02 | Phase ? | Pending |
-| DEPL-03 | Phase ? | Pending |
-| DEPL-04 | Phase ? | Pending |
-| DEPL-05 | Phase ? | Pending |
-| POLH-01 | Phase ? | Pending |
-| POLH-02 | Phase ? | Pending |
-| POLH-03 | Phase ? | Pending |
-| POLH-04 | Phase ? | Pending |
-| POLH-05 | Phase ? | Pending |
+| FNDN-01 | Phase 1 | Pending |
+| FNDN-02 | Phase 1 | Pending |
+| FNDN-03 | Phase 1 | Pending |
+| FNDN-04 | Phase 1 | Pending |
+| FNDN-05 | Phase 1 | Pending |
+| DASH-01 | Phase 2 | Pending |
+| DASH-02 | Phase 2 | Pending |
+| DASH-03 | Phase 2 | Pending |
+| DASH-04 | Phase 2 | Pending |
+| DASH-05 | Phase 2 | Pending |
+| WELC-01 | Phase 2 | Pending |
+| WELC-02 | Phase 2 | Pending |
+| WELC-03 | Phase 2 | Pending |
+| MODL-01 | Phase 3 | Pending |
+| MODL-02 | Phase 3 | Pending |
+| MODL-03 | Phase 3 | Pending |
+| MODL-04 | Phase 3 | Pending |
+| MODL-05 | Phase 3 | Pending |
+| TRCF-01 | Phase 4 | Pending |
+| TRCF-02 | Phase 4 | Pending |
+| TRCF-03 | Phase 4 | Pending |
+| TRCF-04 | Phase 4 | Pending |
+| TRCF-05 | Phase 4 | Pending |
+| TRMN-01 | Phase 5 | Pending |
+| TRMN-02 | Phase 5 | Pending |
+| TRMN-03 | Phase 5 | Pending |
+| TRMN-04 | Phase 5 | Pending |
+| TRMN-05 | Phase 5 | Pending |
+| TRMN-06 | Phase 5 | Pending |
+| DEPL-01 | Phase 6 | Pending |
+| DEPL-02 | Phase 6 | Pending |
+| DEPL-03 | Phase 6 | Pending |
+| DEPL-04 | Phase 6 | Pending |
+| DEPL-05 | Phase 6 | Pending |
+| POLH-01 | Phase 7 | Pending |
+| POLH-02 | Phase 7 | Pending |
+| POLH-03 | Phase 7 | Pending |
+| POLH-04 | Phase 7 | Pending |
+| POLH-05 | Phase 7 | Pending |
 
 **Coverage:**
 - v1 requirements: 38 total
-- Mapped to phases: 0
-- Unmapped: 38 ⚠️
+- Mapped to phases: 38
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-15*
-*Last updated: 2026-02-15 after initial definition*
+*Last updated: 2026-02-15 after roadmap creation*
