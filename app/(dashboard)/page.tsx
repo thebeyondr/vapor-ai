@@ -1,14 +1,15 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { getJobCounts, getRecentJobs } from "@/lib/db/queries"
+import { getJobCounts, getRecentJobs, getDeploymentCounts } from "@/lib/db/queries"
 import { DashboardMetrics } from "./components/dashboard-metrics"
 import { RecentJobsList } from "./components/recent-jobs-list"
 import { WelcomeModal } from "./components/welcome-modal"
 
 export default async function DashboardPage() {
-  const [counts, recentJobs] = await Promise.all([
+  const [counts, recentJobs, deploymentCounts] = await Promise.all([
     getJobCounts(),
     getRecentJobs(5),
+    getDeploymentCounts(),
   ])
 
   return (
@@ -32,6 +33,7 @@ export default async function DashboardPage() {
         completedJobs={counts.completed}
         failedJobs={counts.failed}
         totalJobs={counts.total}
+        deployedModels={deploymentCounts.active}
       />
 
       {/* Recent Jobs List */}
