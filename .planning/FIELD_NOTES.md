@@ -24,4 +24,13 @@ Most portfolio projects only show the happy path. Including failure states in th
 ### Design Direction
 Match Liquid AI's own branding rather than going generic dark-mode or light-and-clean. This is a targeted piece — the reviewer should feel like it could be an internal tool.
 
+### Dashboard as Progressive Reveal
+Key insight during requirements scoping: "I don't have proper context on v1 to make a decision about the dashboard." Rather than designing the dashboard upfront, let it evolve organically as other screens get built. Early phases: minimal landing with "Start New Training" button. Final phase: rich overview with metrics, recent activity, deployment summary. The dashboard is the *last* thing to fully design because it's an aggregation of everything else. This mirrors how real products evolve.
+
+### Neon DB Instead of JSON Files
+Pivoted from "mock data in local JSON + simulated async delays" to Neon serverless Postgres. This adds a real backend story to the portfolio without infrastructure complexity. Neon has a free tier, works seamlessly with Vercel, and means training jobs/deployments persist across sessions. This transforms "frontend demo with fake data" into "full-stack app with real persistence." Much stronger portfolio signal.
+
+### Real-Time Training Monitor as the "Wow" Feature
+Research confirmed this is the highest-impact feature for portfolio differentiation. Live loss curves updating, progress bars ticking, status transitions — this is what makes a reviewer stop and spend more than 30 seconds. The key is making the simulation *feel* real: exponential decay with noise for loss curves, occasional spikes, realistic convergence rates. Not random noise.
+
 ---
