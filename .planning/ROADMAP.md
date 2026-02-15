@@ -48,12 +48,11 @@ Plans:
   3. User can click "Start New Training" CTA to navigate to training config page
   4. First-time visitor sees welcome modal explaining Vapor's purpose and suggested actions
   5. User can dismiss welcome modal and reopen it via floating button
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
-- [ ] 02-03: TBD
+- [ ] 02-01-PLAN.md — Seed database, build dashboard with metrics cards, recent jobs list, and Start New Training CTA
+- [ ] 02-02-PLAN.md — Welcome modal with localStorage persistence and floating reopen button
 
 ### Phase 3: Model Discovery
 **Goal**: User can discover Liquid LFMs and search for models via HuggingFace API
