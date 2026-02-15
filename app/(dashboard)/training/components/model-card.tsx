@@ -5,7 +5,10 @@
 import type { ModelInfo } from "@/lib/huggingface/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 interface ModelCardProps {
   model: ModelInfo;
@@ -63,6 +66,13 @@ export function ModelCard({ model }: ModelCardProps) {
             ))}
           </div>
         )}
+
+        <Button asChild variant="outline" size="sm" className="w-full mt-3">
+          <Link href={`/training/configure?model=${encodeURIComponent(model.id)}`}>
+            Configure Training
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
       </CardContent>
     </Card>
   );

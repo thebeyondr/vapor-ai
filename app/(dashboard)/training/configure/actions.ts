@@ -1,6 +1,6 @@
 "use server"
 
-import { db } from "@/lib/db"
+import { db } from "@/lib/db/client"
 import { trainingJobs } from "@/lib/db/schema"
 import { trainingJobSchema, type TrainingJobInput } from "@/lib/validations/training-job"
 import { revalidatePath } from "next/cache"

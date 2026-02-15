@@ -78,8 +78,8 @@ importers:
         specifier: ^10.1.0
         version: 10.1.0(react@19.2.4)
       zod:
-        specifier: ^4.3.6
-        version: 4.3.6
+        specifier: ^3.25.76
+        version: 3.25.76
     devDependencies:
       '@faker-js/faker':
         specifier: ^10.3.0
