@@ -13,7 +13,7 @@ Vapor ships in 7 phases over 1 week, progressing from foundation to full ML plat
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Database** - Project setup, layout, theming, Neon integration ✓ 2026-02-15
-- [ ] **Phase 2: Dashboard & Welcome** - Landing page with metrics, welcome modal
+- [x] **Phase 2: Dashboard & Welcome** - Landing page with metrics, welcome modal ✓ 2026-02-15
 - [ ] **Phase 3: Model Discovery** - Curated LFMs and HuggingFace API search
 - [ ] **Phase 4: Training Configuration** - Training config form with validation
 - [ ] **Phase 5: Training Monitor** - Real-time progress simulation (wow feature)
@@ -51,8 +51,8 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Seed database, build dashboard with metrics cards, recent jobs list, and Start New Training CTA
-- [ ] 02-02-PLAN.md — Welcome modal with localStorage persistence and floating reopen button
+- [x] 02-01-PLAN.md — Seed database, build dashboard with metrics cards, recent jobs list, and Start New Training CTA
+- [x] 02-02-PLAN.md — Welcome modal with localStorage persistence and floating reopen button
 
 ### Phase 3: Model Discovery
 **Goal**: User can discover Liquid LFMs and search for models via HuggingFace API
@@ -149,7 +149,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Database | 2/2 | ✓ Complete | 2026-02-15 |
-| 2. Dashboard & Welcome | 0/TBD | Not started | - |
+| 2. Dashboard & Welcome | 2/2 | ✓ Complete | 2026-02-15 |
 | 3. Model Discovery | 0/TBD | Not started | - |
 | 4. Training Configuration | 0/TBD | Not started | - |
 | 5. Training Monitor | 0/TBD | Not started | - |
