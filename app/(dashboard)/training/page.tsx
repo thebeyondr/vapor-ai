@@ -1,6 +1,9 @@
 import { getLiquidModels } from "@/lib/huggingface/client";
 import type { ModelModality } from "@/lib/huggingface/types";
+import { AiRecommender } from "./components/ai-recommender";
 import { LiquidLFMSection } from "./components/liquid-lfm-section";
+import { ModelSearch } from "./components/model-search";
+import { Separator } from "@/components/ui/separator";
 
 export default async function TrainingPage() {
   // Fetch models server-side with graceful fallback
@@ -25,17 +28,27 @@ export default async function TrainingPage() {
         </p>
       </div>
 
+      {/* AI Model Advisor - Hero feature */}
+      <AiRecommender />
+
+      {/* Separator between recommender and curated sections */}
+      <Separator className="my-12" />
+
       {/* Curated Liquid AI models section */}
       <LiquidLFMSection modelsByModality={modelsByModality} />
 
-      {/* Placeholder for model search (Plan 02) */}
-      <div id="model-search" className="mt-12">
-        {/* Model search will be added in plan 03-02 */}
-      </div>
+      {/* Separator between curated and search sections */}
+      <Separator className="my-12" />
 
-      {/* Placeholder for AI recommender (Plan 03) */}
-      <div id="ai-recommender" className="mt-12">
-        {/* AI-powered model recommendations will be added in plan 03-03 */}
+      {/* Model search section */}
+      <div className="space-y-6">
+        <div>
+          <h2 className="text-2xl font-bold">Search All Models</h2>
+          <p className="mt-2 text-muted-foreground">
+            Explore the entire HuggingFace ecosystem to find the perfect model for your use case.
+          </p>
+        </div>
+        <ModelSearch />
       </div>
     </div>
   );
