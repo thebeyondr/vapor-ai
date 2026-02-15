@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Dashboard & Welcome** - Landing page with metrics, welcome modal ✓ 2026-02-15
 - [x] **Phase 3: Model Discovery** - Curated LFMs and HuggingFace API search ✓ 2026-02-15
 - [x] **Phase 4: Training Configuration** - Training config form with validation ✓ 2026-02-15
-- [ ] **Phase 5: Training Monitor** - Real-time progress simulation (wow feature)
+- [x] **Phase 5: Training Monitor** - Real-time progress simulation (wow feature) ✓ 2026-02-15
 - [ ] **Phase 6: Deployments** - Deployed models view with stats
 - [ ] **Phase 7: Polish & Responsive** - Final refinement, animations, cross-device
 
