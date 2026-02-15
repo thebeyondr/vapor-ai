@@ -98,13 +98,12 @@ Plans:
   4. Failed training jobs show amber/red status badges and trigger notification toasts
   5. Training metrics are persisted to Neon database as they generate
   6. Multiple concurrent training jobs can run without interfering with each other's displays
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
-- [ ] 05-03: TBD
-- [ ] 05-04: TBD
+- [ ] 05-01-PLAN.md — Install deps (recharts, sonner, date-fns), add trainingMetrics schema, create TrainingSimulator service and useInterval hook
+- [ ] 05-02-PLAN.md — Server Actions for training operations (start/simulate/fail), metrics API route, jobs list page, Sonner toaster setup
+- [ ] 05-03-PLAN.md — Training monitor page with live loss chart, training stats, progress bar, polling, and toast notifications
 
 ### Phase 6: Deployments
 **Goal**: User can view deployed models with inference statistics
@@ -151,6 +150,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 2. Dashboard & Welcome | 2/2 | ✓ Complete | 2026-02-15 |
 | 3. Model Discovery | 3/3 | ✓ Complete | 2026-02-15 |
 | 4. Training Configuration | 2/2 | ✓ Complete | 2026-02-15 |
-| 5. Training Monitor | 0/TBD | Not started | - |
+| 5. Training Monitor | 0/3 | Not started | - |
 | 6. Deployments | 0/TBD | Not started | - |
 | 7. Polish & Responsive | 0/TBD | Not started | - |
