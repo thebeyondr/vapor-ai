@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-15)
 ## Current Position
 
 Phase: 4 of 7 (Training Configuration)
-Plan: 1 of 2 complete
-Status: Phase 4 in progress
-Last activity: 2026-02-15 — Training configuration foundation with batchSize column and shared Zod validation schema complete
+Plan: 2 of 2 complete
+Status: Phase 4 complete
+Last activity: 2026-02-15 — Training configuration form with validated hyperparameters, Server Action submission, and model card navigation complete
 
-Progress: [██████░░░░░] 50% (Phase 4)
+Progress: [██████████░] 100% (Phase 4)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: ~5.9min
-- Total execution time: 0.79 hours
+- Total plans completed: 9
+- Average duration: ~5.6min
+- Total execution time: 0.85 hours
 
 **By Phase:**
 
@@ -30,10 +30,10 @@ Progress: [██████░░░░░] 50% (Phase 4)
 | 1 | 2/2 | 35min | 18min |
 | 2 | 2/2 | 5min | 2.5min |
 | 3 | 3/3 | 11min | 3.7min |
-| 4 | 1/2 | 2min | 2min |
+| 4 | 2/2 | 6min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 03-01 (4min), 03-02 (3min), 03-03 (4min), 04-01 (2min)
+- Last 5 plans: 03-02 (3min), 03-03 (4min), 04-01 (2min), 04-02 (4min)
 - Trend: Consistently fast execution in Phases 2-4
 
 *Updated after each plan completion*
@@ -74,6 +74,11 @@ Recent decisions affecting current work:
 - [Phase 04-01]: Power of 2 validation for batchSize ensures GPU memory efficiency
 - [Phase 04-01]: Updated default epochs to 3 and learningRate to 0.0002 based on research
 - [Phase 04-01]: Hyperparameter ranges const for reusable validation and future UI hints
+- [Phase 04-02]: Select dropdown for batch size instead of number input for clearer UX
+- [Phase 04-02]: useTransition for Server Action pending state (RHF isSubmitting doesn't track async)
+- [Phase 04-02]: Error-as-data pattern in Server Actions (return object, not throw)
+- [Phase 04-02]: Redirect to dashboard after job creation (user sees queued job immediately)
+- [Phase 04-02]: Downgraded Zod to v3.25.76 for @hookform/resolvers compatibility
 
 ### Pending Todos
 
@@ -92,5 +97,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-15 (phase 4 execution)
-Stopped at: Completed 04-01-PLAN.md — Training configuration foundation with schema, validation, and form dependencies
+Stopped at: Completed 04-02-PLAN.md — Training configuration UI with form, Server Action, and model card navigation
 Resume file: None
