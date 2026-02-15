@@ -129,14 +129,14 @@ Plans:
   1. All async operations show loading states (skeletons for lists, spinners for actions)
   2. All views have empty states with helpful CTAs when no data exists
   3. App is fully functional on desktop, tablet, and mobile viewports
-  4. Page transitions use smooth animations via Framer Motion
+  4. Page transitions use smooth animations via Motion (formerly Framer Motion)
   5. All charts and metrics use realistic ranges and values appropriate to ML domain
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 07-01: TBD
-- [ ] 07-02: TBD
-- [ ] 07-03: TBD
+- [ ] 07-01-PLAN.md — Loading skeletons for all routes, reusable EmptyState component, empty state upgrades, ML metric constants
+- [ ] 07-02-PLAN.md — Motion page transitions with FrozenRouter pattern, responsive design audit and fixes
+- [ ] 07-03-PLAN.md — Visual verification checkpoint across viewports and interaction states
 
 ## Progress
 
@@ -151,4 +151,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 4. Training Configuration | 2/2 | ✓ Complete | 2026-02-15 |
 | 5. Training Monitor | 0/3 | Not started | - |
 | 6. Deployments | 0/TBD | Not started | - |
-| 7. Polish & Responsive | 0/TBD | Not started | - |
+| 7. Polish & Responsive | 0/3 | Not started | - |
