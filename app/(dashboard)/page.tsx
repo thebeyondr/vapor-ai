@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { getJobCounts, getRecentJobs } from "@/lib/db/queries"
 import { DashboardMetrics } from "./components/dashboard-metrics"
 import { RecentJobsList } from "./components/recent-jobs-list"
+import { WelcomeModal } from "./components/welcome-modal"
 
 export default async function DashboardPage() {
   const [counts, recentJobs] = await Promise.all([
@@ -35,6 +36,9 @@ export default async function DashboardPage() {
 
       {/* Recent Jobs List */}
       <RecentJobsList jobs={recentJobs} />
+
+      {/* Welcome Modal (Client Component island) */}
+      <WelcomeModal />
     </div>
   )
 }
