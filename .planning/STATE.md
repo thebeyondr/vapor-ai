@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-15)
 
 **Core value:** Prove you can translate ML complexity into accessible UX — and ship it fast with good taste using Liquid AI's exact stack.
-**Current focus:** Phase 4 in progress — Training Configuration
+**Current focus:** Phase 5 in progress — Training Monitor
 
 ## Current Position
 
-Phase: 4 of 7 (Training Configuration)
-Plan: 2 of 2 complete
-Status: Phase 4 complete
-Last activity: 2026-02-15 — Training configuration form with validated hyperparameters, Server Action submission, and model card navigation complete
+Phase: 5 of 7 (Training Monitor)
+Plan: 1 of 3 complete
+Status: Phase 5 in progress
+Last activity: 2026-02-15 — Training monitor foundation with trainingMetrics schema, TrainingSimulator service, and useInterval hook complete
 
-Progress: [██████████░] 100% (Phase 4)
+Progress: [███░░░░░░░░] 33% (Phase 5)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
-- Average duration: ~5.6min
-- Total execution time: 0.85 hours
+- Total plans completed: 10
+- Average duration: ~5.1min
+- Total execution time: 0.88 hours
 
 **By Phase:**
 
@@ -31,10 +31,11 @@ Progress: [██████████░] 100% (Phase 4)
 | 2 | 2/2 | 5min | 2.5min |
 | 3 | 3/3 | 11min | 3.7min |
 | 4 | 2/2 | 6min | 3min |
+| 5 | 1/3 | 2min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: 03-02 (3min), 03-03 (4min), 04-01 (2min), 04-02 (4min)
-- Trend: Consistently fast execution in Phases 2-4
+- Last 5 plans: 03-03 (4min), 04-01 (2min), 04-02 (4min), 05-01 (2min)
+- Trend: Consistently fast execution in Phases 2-5
 
 *Updated after each plan completion*
 
@@ -79,6 +80,9 @@ Recent decisions affecting current work:
 - [Phase 04-02]: Error-as-data pattern in Server Actions (return object, not throw)
 - [Phase 04-02]: Redirect to dashboard after job creation (user sees queued job immediately)
 - [Phase 04-02]: Downgraded Zod to v3.25.76 for @hookform/resolvers compatibility
+- [Phase 05-01]: Exponential decay with diminishing Gaussian noise for realistic training curves
+- [Phase 05-01]: Dan Abramov's declarative interval pattern for polling hooks
+- [Phase 05-01]: Cascade delete for trainingMetrics maintains database integrity
 
 ### Pending Todos
 
@@ -90,12 +94,11 @@ None yet.
 - ✓ HuggingFace API integration confirmed working with @huggingface/hub library
 - ✓ Static fallback pattern implemented for offline/API-unavailable scenarios
 
-**Phase 5 Research Needed:**
-- Realistic training curve shapes for loss/accuracy simulation
-- Research can improve realism but not blocking (can fake with exponential decay + noise)
+**Phase 5 (Resolved):**
+- ✓ Realistic training curve simulation implemented using exponential decay + diminishing Gaussian noise
 
 ## Session Continuity
 
-Last session: 2026-02-15 (phase 4 execution)
-Stopped at: Completed 04-02-PLAN.md — Training configuration UI with form, Server Action, and model card navigation
+Last session: 2026-02-15 (phase 5 execution)
+Stopped at: Completed 05-01-PLAN.md — Training monitor foundation with schema, simulator, and hooks
 Resume file: None
