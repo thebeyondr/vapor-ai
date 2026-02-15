@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-15)
 ## Current Position
 
 Phase: 5 of 7 (Training Monitor)
-Plan: 1 of 3 complete
+Plan: 2 of 3 complete
 Status: Phase 5 in progress
-Last activity: 2026-02-15 — Training monitor foundation with trainingMetrics schema, TrainingSimulator service, and useInterval hook complete
+Last activity: 2026-02-15 — Training operations data layer with Server Actions, metrics API, jobs list UI, and Sonner toaster complete
 
-Progress: [███░░░░░░░░] 33% (Phase 5)
+Progress: [██████░░░░░] 67% (Phase 5)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
-- Average duration: ~5.1min
-- Total execution time: 0.88 hours
+- Total plans completed: 11
+- Average duration: ~4.8min
+- Total execution time: 0.97 hours
 
 **By Phase:**
 
@@ -31,10 +31,10 @@ Progress: [███░░░░░░░░] 33% (Phase 5)
 | 2 | 2/2 | 5min | 2.5min |
 | 3 | 3/3 | 11min | 3.7min |
 | 4 | 2/2 | 6min | 3min |
-| 5 | 1/3 | 2min | 2min |
+| 5 | 2/3 | 5min | 2.5min |
 
 **Recent Trend:**
-- Last 5 plans: 03-03 (4min), 04-01 (2min), 04-02 (4min), 05-01 (2min)
+- Last 5 plans: 04-01 (2min), 04-02 (4min), 05-01 (2min), 05-02 (3min)
 - Trend: Consistently fast execution in Phases 2-5
 
 *Updated after each plan completion*
@@ -83,6 +83,10 @@ Recent decisions affecting current work:
 - [Phase 05-01]: Exponential decay with diminishing Gaussian noise for realistic training curves
 - [Phase 05-01]: Dan Abramov's declarative interval pattern for polling hooks
 - [Phase 05-01]: Cascade delete for trainingMetrics maintains database integrity
+- [Phase 05-02]: Error-as-data pattern in Server Actions for training operations (safer than throwing)
+- [Phase 05-02]: Direct DB queries in API routes (bypass cache) for polling freshness
+- [Phase 05-02]: Sonner richColors mode for semantic toast notifications
+- [Phase 05-02]: simulateTrainingStep auto-completes job when all steps generated
 
 ### Pending Todos
 
@@ -100,5 +104,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-15 (phase 5 execution)
-Stopped at: Completed 05-01-PLAN.md — Training monitor foundation with schema, simulator, and hooks
+Stopped at: Completed 05-02-PLAN.md — Training operations data layer with Server Actions, metrics API, jobs list UI, and Sonner toaster
 Resume file: None
