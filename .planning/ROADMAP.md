@@ -32,12 +32,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. User can toggle between light and dark mode
   4. App is deployed to Vercel with public URL
   5. Neon database is connected and stores at least one test record
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md — Scaffold app, apply Liquid AI theming, build sidebar navigation with 3 routes and dark mode
+- [ ] 01-02-PLAN.md — Set up Neon database with Drizzle ORM, verify connection, deploy to Vercel
 
 ### Phase 2: Dashboard & Welcome
 **Goal**: User sees a functional landing page with metrics and understands what Vapor is
@@ -146,11 +145,11 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Database | 0/TBD | Not started | - |
+| 1. Foundation & Database | 0/2 | Planning complete | - |
 | 2. Dashboard & Welcome | 0/TBD | Not started | - |
 | 3. Model Discovery | 0/TBD | Not started | - |
 | 4. Training Configuration | 0/TBD | Not started | - |
