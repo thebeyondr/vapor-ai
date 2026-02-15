@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-15)
 ## Current Position
 
 Phase: 6 of 7 (Deployments)
-Plan: 1 of 2 complete
-Status: Phase 6 in progress
-Last activity: 2026-02-15 — Deployment infrastructure with schema, inference simulator, and deploy action complete
+Plan: 2 of 2 complete
+Status: Phase 6 complete
+Last activity: 2026-02-15 — Deployments table UI with TanStack Table, deployment detail page with inference metrics, and dashboard integration complete
 
-Progress: [█████████░░] 50% (Phase 6)
+Progress: [███████████] 100% (Phase 6)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 13
-- Average duration: ~4.2min
-- Total execution time: 1.08 hours
+- Total plans completed: 14
+- Average duration: ~4.1min
+- Total execution time: 1.15 hours
 
 **By Phase:**
 
@@ -32,10 +32,10 @@ Progress: [█████████░░] 50% (Phase 6)
 | 3 | 3/3 | 11min | 3.7min |
 | 4 | 2/2 | 6min | 3min |
 | 5 | 3/3 | 8min | 2.7min |
-| 6 | 1/2 | 3min | 3min |
+| 6 | 2/2 | 7min | 3.5min |
 
 **Recent Trend:**
-- Last 5 plans: 05-01 (2min), 05-02 (3min), 05-03 (3min), 06-01 (3min)
+- Last 5 plans: 05-02 (3min), 05-03 (3min), 06-01 (3min), 06-02 (4min)
 - Trend: Consistently fast execution maintained
 
 *Updated after each plan completion*
@@ -96,6 +96,10 @@ Recent decisions affecting current work:
 - [Phase 06-01]: Semantic versioning v1.{count}.0 for clear version progression
 - [Phase 06-01]: Box-Muller transform for Gaussian noise in inference metric simulation
 - [Phase 06-01]: Prevent duplicate active deployments per job
+- [Phase 06-02]: TanStack Table for deployments with sorting/filtering (industry-standard solution)
+- [Phase 06-02]: Model name text filter + status dropdown for practical UX
+- [Phase 06-02]: Show metrics only for active deployments (others show unavailable message)
+- [Phase 06-02]: Dashboard shows active deployment count (actionable metric)
 
 ### Pending Todos
 
@@ -113,5 +117,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-15 (phase 6 execution)
-Stopped at: Completed 06-01-PLAN.md — Deployment infrastructure with schema, inference simulator, and deploy action complete. Ready for Plan 02 (deployments table UI).
+Stopped at: Completed 06-02-PLAN.md — Deployments table UI with TanStack Table, deployment detail page with inference metrics, and dashboard integration complete. Phase 6 complete. Ready for Phase 7 (polish).
 Resume file: None
