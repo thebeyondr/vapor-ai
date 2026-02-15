@@ -5,6 +5,7 @@ import { eq, asc } from "drizzle-orm"
 import { db } from "@/lib/db/client"
 import { trainingJobs, trainingMetrics } from "@/lib/db/schema"
 import { TrainingMonitor } from "./components/training-monitor"
+import { DeployButton } from "./components/deploy-button"
 
 interface PageProps {
   params: Promise<{ id: string }>
@@ -54,11 +55,14 @@ export default async function TrainingJobPage({ params }: PageProps) {
       </Link>
 
       {/* Page header */}
-      <div>
-        <h1 className="text-3xl font-bold">{job.name}</h1>
-        <p className="text-muted-foreground">
-          {job.modelName} &middot; {job.epochs} epochs &middot; LR {job.learningRate}
-        </p>
+      <div className="flex items-start justify-between">
+        <div>
+          <h1 className="text-3xl font-bold">{job.name}</h1>
+          <p className="text-muted-foreground">
+            {job.modelName} &middot; {job.epochs} epochs &middot; LR {job.learningRate}
+          </p>
+        </div>
+        <DeployButton jobId={job.id} jobStatus={job.status} />
       </div>
 
       {/* Training monitor */}
