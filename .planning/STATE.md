@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-15)
 
 **Core value:** Prove you can translate ML complexity into accessible UX — and ship it fast with good taste using Liquid AI's exact stack.
-**Current focus:** Phase 5 in progress — Training Monitor
+**Current focus:** Phase 6 in progress — Deployments
 
 ## Current Position
 
-Phase: 5 of 7 (Training Monitor)
-Plan: 3 of 3 complete
-Status: Phase 5 complete
-Last activity: 2026-02-15 — Training monitor UI with live-updating loss curves, real-time progress tracking, and status notifications complete
+Phase: 6 of 7 (Deployments)
+Plan: 1 of 2 complete
+Status: Phase 6 in progress
+Last activity: 2026-02-15 — Deployment infrastructure with schema, inference simulator, and deploy action complete
 
-Progress: [████████░░░] 100% (Phase 5)
+Progress: [█████████░░] 50% (Phase 6)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
-- Average duration: ~4.5min
-- Total execution time: 1.02 hours
+- Total plans completed: 13
+- Average duration: ~4.2min
+- Total execution time: 1.08 hours
 
 **By Phase:**
 
@@ -32,10 +32,11 @@ Progress: [████████░░░] 100% (Phase 5)
 | 3 | 3/3 | 11min | 3.7min |
 | 4 | 2/2 | 6min | 3min |
 | 5 | 3/3 | 8min | 2.7min |
+| 6 | 1/2 | 3min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 04-02 (4min), 05-01 (2min), 05-02 (3min), 05-03 (3min)
-- Trend: Consistently fast execution in Phases 2-5
+- Last 5 plans: 05-01 (2min), 05-02 (3min), 05-03 (3min), 06-01 (3min)
+- Trend: Consistently fast execution maintained
 
 *Updated after each plan completion*
 
@@ -90,6 +91,11 @@ Recent decisions affecting current work:
 - [Phase 05-03]: AreaChart over LineChart for visual impact with gradient fill
 - [Phase 05-03]: 1.5 second polling interval balances real-time feel with server load
 - [Phase 05-03]: Client-side status state management for immediate UI feedback
+- [Phase 06-01]: Skip "deploying" state - instant deployment to "active" for demo simplicity
+- [Phase 06-01]: Restrict on delete for job FK prevents accidental deletion of deployed jobs
+- [Phase 06-01]: Semantic versioning v1.{count}.0 for clear version progression
+- [Phase 06-01]: Box-Muller transform for Gaussian noise in inference metric simulation
+- [Phase 06-01]: Prevent duplicate active deployments per job
 
 ### Pending Todos
 
@@ -106,6 +112,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-15 (phase 5 execution)
-Stopped at: Completed 05-03-PLAN.md — Training monitor UI with live-updating loss curves, real-time progress tracking, and status notifications. Phase 5 complete.
+Last session: 2026-02-15 (phase 6 execution)
+Stopped at: Completed 06-01-PLAN.md — Deployment infrastructure with schema, inference simulator, and deploy action complete. Ready for Plan 02 (deployments table UI).
 Resume file: None
