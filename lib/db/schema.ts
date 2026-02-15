@@ -5,8 +5,9 @@ export const trainingJobs = pgTable("training_jobs", {
   name: varchar("name", { length: 255 }).notNull(),
   status: text("status", { enum: ["queued", "running", "complete", "failed"] }).notNull().default("queued"),
   modelName: varchar("model_name", { length: 255 }).notNull(),
-  epochs: integer("epochs").notNull().default(10),
-  learningRate: real("learning_rate").notNull().default(0.001),
+  epochs: integer("epochs").notNull().default(3),
+  learningRate: real("learning_rate").notNull().default(0.0002),
+  batchSize: integer("batch_size").notNull().default(16),
   createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull().$onUpdate(() => new Date()),
 })
