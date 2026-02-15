@@ -1,7 +1,7 @@
 import { cache } from "react"
 import { db } from "./client"
-import { trainingJobs } from "./schema"
-import { eq, desc, count, sql } from "drizzle-orm"
+import { trainingJobs, trainingMetrics } from "./schema"
+import { eq, desc, count, sql, asc } from "drizzle-orm"
 
 export const getJobCounts = cache(async () => {
   // Get counts for each status in parallel
@@ -37,4 +37,33 @@ export const getRecentJobs = cache(async (limit = 5) => {
     .limit(limit)
 
   return jobs
+})
+
+export const getAllJobs = cache(async () => {
+  const jobs = await db
+    .select()
+    .from(trainingJobs)
+    .orderBy(desc(trainingJobs.createdAt))
+
+  return jobs
+})
+
+export const getTrainingJob = cache(async (id: number) => {
+  const [job] = await db
+    .select()
+    .from(trainingJobs)
+    .where(eq(trainingJobs.id, id))
+
+  return job
+})
+
+export const getTrainingMetrics = cache(async (jobId: number, limit = 200) => {
+  const metrics = await db
+    .select()
+    .from(trainingMetrics)
+    .where(eq(trainingMetrics.jobId, jobId))
+    .orderBy(asc(trainingMetrics.step))
+    .limit(limit)
+
+  return metrics
 })
