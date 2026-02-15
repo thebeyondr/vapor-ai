@@ -26,7 +26,7 @@ export default async function DeploymentsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Deployments</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Deployments</h1>
         <p className="text-muted-foreground">
           Monitor deployed models and inference performance
         </p>

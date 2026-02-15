@@ -22,7 +22,7 @@ export default async function TrainingPage() {
     <div className="space-y-8">
       {/* Page header */}
       <div>
-        <h1 className="text-3xl font-bold">Model Discovery</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold">Model Discovery</h1>
         <p className="mt-2 text-muted-foreground">
           Explore Liquid AI's family of efficient foundation models optimized for edge deployment and real-world applications.
         </p>

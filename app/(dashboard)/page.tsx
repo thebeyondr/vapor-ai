@@ -15,9 +15,9 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-8">
       {/* Header Section */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold">Dashboard</h1>
           <p className="mt-2 text-muted-foreground">
             Monitor your training jobs and deployments
           </p>

@@ -14,7 +14,7 @@ export default async function ConfigurePage({ searchParams }: ConfigurePageProps
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Configure Training Job</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold">Configure Training Job</h1>
         <p className="mt-2 text-muted-foreground">
           Set up hyperparameters and configure your model fine-tuning job.
         </p>

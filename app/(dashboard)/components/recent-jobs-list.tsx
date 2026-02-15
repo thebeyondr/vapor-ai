@@ -43,13 +43,13 @@ export function RecentJobsList({ jobs }: { jobs: TrainingJob[] }) {
           {jobs.map((job) => (
             <div
               key={job.id}
-              className="flex items-center justify-between border-b pb-4 last:border-0 last:pb-0"
+              className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b pb-4 last:border-0 last:pb-0"
             >
               <div className="flex-1 min-w-0">
                 <p className="font-medium truncate">{job.name}</p>
                 <p className="text-sm text-muted-foreground">{job.modelName}</p>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
                 <StatusBadge status={job.status} />
                 <span className="text-sm text-muted-foreground whitespace-nowrap">
                   {formatRelativeTime(job.createdAt)}

@@ -44,9 +44,9 @@ export default async function DeploymentDetailPage({ params }: PageProps) {
       </Link>
 
       {/* Page header */}
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold">{deployment.modelName}</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold">{deployment.modelName}</h1>
           <div className="flex items-center gap-3">
             <span className="font-mono text-sm text-muted-foreground">
               {deployment.version}

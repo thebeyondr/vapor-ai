@@ -13,9 +13,9 @@ export default async function TrainingJobsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Training Jobs</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Training Jobs</h1>
           <p className="text-muted-foreground">
             Manage and monitor all your training runs
           </p>
@@ -52,8 +52,8 @@ export default async function TrainingJobsPage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center justify-between">
-                  <div className="grid grid-cols-3 gap-6 text-sm">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
                     <div>
                       <p className="text-muted-foreground">Epochs</p>
                       <p className="font-medium">{job.epochs}</p>
