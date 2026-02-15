@@ -115,12 +115,11 @@ Plans:
   3. User can sort and filter deployed models table
   4. Each deployed model displays inference stats (request volume, P50/P95 latency, error rate)
   5. Deployment records are persisted to Neon database
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 06-01: TBD
-- [ ] 06-02: TBD
-- [ ] 06-03: TBD
+- [ ] 06-01-PLAN.md — Schema + dependencies + inference simulator + deploy Server Action with deploy button
+- [ ] 06-02-PLAN.md — Deployments table page with sorting/filtering + detail page with inference stats + dashboard update
 
 ### Phase 7: Polish & Responsive
 **Goal**: App feels polished across all devices with smooth interactions
