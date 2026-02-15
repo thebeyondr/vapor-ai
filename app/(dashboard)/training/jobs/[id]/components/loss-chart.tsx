@@ -12,7 +12,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface LossChartProps {
-  data: Array<{ step: number; loss: number; accuracy?: number }>
+  data: Array<{ step: number; loss: number; accuracy?: number | null; epoch: number }>
 }
 
 export function LossChart({ data }: LossChartProps) {
