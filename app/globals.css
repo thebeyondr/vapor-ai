@@ -68,13 +68,13 @@
   --chart-4: 43 74% 66%;
   --chart-5: 27 87% 67%;
   --radius: 0.5rem;
-  --sidebar: hsl(0 0% 100%);
-  --sidebar-foreground: hsl(0 0% 0%);
+  --sidebar: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(0 0% 10%);
   --sidebar-primary: hsl(271 97% 34%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(209 83% 57%);
-  --sidebar-accent-foreground: hsl(0 0% 100%);
-  --sidebar-border: hsl(0 0% 85%);
+  --sidebar-accent: hsl(271 40% 94%);
+  --sidebar-accent-foreground: hsl(271 97% 34%);
+  --sidebar-border: hsl(0 0% 88%);
   --sidebar-ring: hsl(271 97% 34%);
 }
 
@@ -103,13 +103,13 @@
   --chart-3: 160 60% 45%;
   --chart-4: 280 65% 60%;
   --chart-5: 340 75% 55%;
-  --sidebar: hsl(240 10% 6%);
-  --sidebar-foreground: hsl(0 0% 96%);
+  --sidebar: hsl(240 10% 8%);
+  --sidebar-foreground: hsl(0 0% 90%);
   --sidebar-primary: hsl(271 80% 55%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(209 83% 57%);
-  --sidebar-accent-foreground: hsl(0 0% 100%);
-  --sidebar-border: hsl(240 5% 20%);
+  --sidebar-accent: hsl(271 30% 18%);
+  --sidebar-accent-foreground: hsl(271 80% 70%);
+  --sidebar-border: hsl(240 5% 15%);
   --sidebar-ring: hsl(271 80% 55%);
 }
 
@@ -119,5 +119,13 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
