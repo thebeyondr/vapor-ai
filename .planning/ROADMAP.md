@@ -64,12 +64,12 @@ Plans:
   3. Model cards display name, size, architecture, and description
   4. User can describe a training goal in natural language and receive model suggestions
   5. Search gracefully falls back to cached data if HuggingFace API is unavailable
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
-- [ ] 03-03: TBD
+- [ ] 03-01-PLAN.md — HuggingFace client, curated Liquid LFM catalog, model cards on training page
+- [ ] 03-02-PLAN.md — Debounced model search via HuggingFace API with fallback
+- [ ] 03-03-PLAN.md — AI model recommender with natural language goal input
 
 ### Phase 4: Training Configuration
 **Goal**: User can configure and submit a training job with validated inputs
@@ -150,7 +150,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 |-------|----------------|--------|-----------|
 | 1. Foundation & Database | 2/2 | ✓ Complete | 2026-02-15 |
 | 2. Dashboard & Welcome | 2/2 | ✓ Complete | 2026-02-15 |
-| 3. Model Discovery | 0/TBD | Not started | - |
+| 3. Model Discovery | 0/3 | Not started | - |
 | 4. Training Configuration | 0/TBD | Not started | - |
 | 5. Training Monitor | 0/TBD | Not started | - |
 | 6. Deployments | 0/TBD | Not started | - |
