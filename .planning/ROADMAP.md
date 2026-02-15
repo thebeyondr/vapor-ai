@@ -12,7 +12,7 @@ Vapor ships in 7 phases over 1 week, progressing from foundation to full ML plat
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Database** - Project setup, layout, theming, Neon integration
+- [x] **Phase 1: Foundation & Database** - Project setup, layout, theming, Neon integration ✓ 2026-02-15
 - [ ] **Phase 2: Dashboard & Welcome** - Landing page with metrics, welcome modal
 - [ ] **Phase 3: Model Discovery** - Curated LFMs and HuggingFace API search
 - [ ] **Phase 4: Training Configuration** - Training config form with validation
@@ -35,8 +35,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Scaffold app, apply Liquid AI theming, build sidebar navigation with 3 routes and dark mode
-- [ ] 01-02-PLAN.md — Set up Neon database with Drizzle ORM, verify connection, deploy to Vercel
+- [x] 01-01-PLAN.md — Scaffold app, apply Liquid AI theming, build sidebar navigation with 3 routes and dark mode
+- [x] 01-02-PLAN.md — Set up Neon database with Drizzle ORM, verify connection, deploy to Vercel
 
 ### Phase 2: Dashboard & Welcome
 **Goal**: User sees a functional landing page with metrics and understands what Vapor is
@@ -149,7 +149,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Database | 0/2 | Planning complete | - |
+| 1. Foundation & Database | 2/2 | ✓ Complete | 2026-02-15 |
 | 2. Dashboard & Welcome | 0/TBD | Not started | - |
 | 3. Model Discovery | 0/TBD | Not started | - |
 | 4. Training Configuration | 0/TBD | Not started | - |
