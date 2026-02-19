@@ -12,5 +12,6 @@ export interface ModelInfo {
   parameterCount: string;
   architecture: string;
   downloads?: number;
+  likes?: number;
   tags?: string[];
 }

@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download, Heart } from "lucide-react";
 
 interface ModelCardProps {
   model: ModelInfo;
@@ -51,9 +51,20 @@ export function ModelCard({ model }: ModelCardProps) {
           {model.description}
         </p>
 
-        {model.downloads && (
-          <div className="text-xs text-muted-foreground">
-            {model.downloads.toLocaleString()} downloads
+        {(model.downloads != null || model.likes != null) && (
+          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+            {model.downloads != null && (
+              <span className="flex items-center gap-1">
+                <Download className="h-3 w-3" />
+                {model.downloads.toLocaleString()}
+              </span>
+            )}
+            {model.likes != null && model.likes > 0 && (
+              <span className="flex items-center gap-1">
+                <Heart className="h-3 w-3" />
+                {model.likes.toLocaleString()}
+              </span>
+            )}
           </div>
         )}
 

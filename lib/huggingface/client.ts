@@ -28,10 +28,8 @@ export async function getLiquidModels(): Promise<ModelInfo[]> {
       search: { owner: "LiquidAI" },
       credentials,
     })) {
-      // Map HF model to our ModelInfo interface
-      // Note: We'll use our static data structure for consistency
-      // since HF API doesn't provide modality/architecture in the same format
-      const staticMatch = LIQUID_LFMS.find(m => m.id === model.id);
+      // HF SDK maps: model.id = internal _id (hex), model.name = "org/repo-name"
+      const staticMatch = LIQUID_LFMS.find(m => m.id === model.name);
 
       if (staticMatch) {
         models.push({

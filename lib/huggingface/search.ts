@@ -9,6 +9,46 @@ import { listModels } from "@huggingface/hub";
 import type { ModelInfo, ModelModality } from "./types";
 import { LIQUID_LFMS } from "./liquid-lfm";
 
+const PIPELINE_TO_MODALITY: Record<string, ModelModality> = {
+  "text-generation": "text",
+  "text2text-generation": "text",
+  "text-classification": "text",
+  "token-classification": "text",
+  "question-answering": "text",
+  "fill-mask": "text",
+  "summarization": "text",
+  "translation": "text",
+  "conversational": "text",
+  "sentence-similarity": "text",
+  "feature-extraction": "text",
+  "image-classification": "vision",
+  "object-detection": "vision",
+  "image-segmentation": "vision",
+  "image-to-text": "vision",
+  "text-to-image": "vision",
+  "automatic-speech-recognition": "audio",
+  "audio-classification": "audio",
+  "text-to-speech": "audio",
+  "text-to-audio": "audio",
+};
+
+function formatParamCount(total: number): string {
+  if (total >= 1e12) return `${(total / 1e12).toFixed(1)}T`;
+  if (total >= 1e9) return `${(total / 1e9).toFixed(1)}B`;
+  if (total >= 1e6) return `${(total / 1e6).toFixed(0)}M`;
+  if (total >= 1e3) return `${(total / 1e3).toFixed(0)}K`;
+  return String(total);
+}
+
+function displayName(id: string): string {
+  // "meta-llama/Llama-3.1-8B-Instruct" -> "Llama-3.1-8B-Instruct"
+  // Falls back to full id if repo name is numeric or too short
+  if (!id.includes("/")) return id;
+  const repo = id.split("/")[1];
+  if (/^\d+$/.test(repo) || repo.length < 3) return id;
+  return repo;
+}
+
 /**
  * Search HuggingFace models with graceful fallback to static data
  *
@@ -26,25 +66,37 @@ export async function searchHuggingFaceModels(
 
     const models: ModelInfo[] = [];
 
-    // Search HuggingFace models with query
+    // Search HuggingFace models with query, requesting extra fields
     for await (const model of listModels({
       search: { query },
       limit: 20,
+      additionalFields: ["safetensors", "tags", "library_name"],
       credentials,
     })) {
-      // Default modality to "text" since we can't reliably infer from basic ModelEntry
-      const modality: ModelModality = "text";
+      const pipelineTag = model.task ?? "";
+      const modality: ModelModality = PIPELINE_TO_MODALITY[pipelineTag] ?? "text";
+      const paramTotal = model.safetensors?.total;
+      const parameterCount = paramTotal ? formatParamCount(paramTotal) : undefined;
+      const library = model.library_name ?? undefined;
+
+      // HF SDK maps: model.id = internal _id (hex), model.name = "org/repo-name"
+      const fullId = model.name;
 
       models.push({
-        id: model.id,
-        name: model.name || model.id,
+        id: fullId,
+        name: displayName(fullId),
         modality,
-        description: `HuggingFace model: ${model.id}`,
-        parameterCount: "Unknown",
-        architecture: "Unknown",
+        description: model.tags?.slice(0, 3).join(", ") || pipelineTag || fullId,
+        parameterCount: parameterCount ?? (library || "Model"),
+        architecture: library || pipelineTag || "Transformer",
         downloads: model.downloads,
+        likes: model.likes,
+        tags: model.tags?.slice(0, 5),
       });
     }
+
+    // Sort by downloads descending — most popular models first
+    models.sort((a, b) => (b.downloads ?? 0) - (a.downloads ?? 0));
 
     // Return successful API results
     if (models.length > 0) {
