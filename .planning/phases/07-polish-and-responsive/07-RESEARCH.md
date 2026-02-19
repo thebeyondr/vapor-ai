@@ -6,18 +6,18 @@
 
 ## Summary
 
-Phase 7 focuses on elevating the user experience through comprehensive polish: loading states (skeletons/spinners), empty states with CTAs, responsive design across devices (desktop/tablet/mobile), smooth page transitions with Framer Motion, and realistic ML-domain chart values.
+Phase 7 focuses on elevating the user experience through comprehensive polish: loading states (skeletons/spinners), empty states with CTAs, responsive design across devices (desktop/tablet/mobile), smooth page transitions with Motion, and realistic ML-domain chart values.
 
-The existing stack is well-positioned for this phase: Tailwind v4 with built-in container queries, shadcn/ui components (Skeleton, Spinner), Recharts with ResponsiveContainer already in use, and the sidebar component with built-in mobile responsiveness. The primary additions are Framer Motion for page transitions and systematic empty state patterns.
+The existing stack is well-positioned for this phase: Tailwind v4 with built-in container queries, shadcn/ui components (Skeleton, Spinner), Recharts with ResponsiveContainer already in use, and the sidebar component with built-in mobile responsiveness. The primary additions are Motion for page transitions and systematic empty state patterns.
 
-**Primary recommendation:** Use a layered approach: (1) Add skeleton/spinner loading states to all async operations, (2) Design empty states with domain-specific CTAs, (3) Leverage Tailwind v4 container queries for component-level responsiveness, (4) Implement Framer Motion with FrozenRouter pattern for App Router compatibility, (5) Normalize chart data to realistic ML training ranges (loss: 0.1-5.0, GPU utilization: 40-85%, learning rates: 0.001-0.01).
+**Primary recommendation:** Use a layered approach: (1) Add skeleton/spinner loading states to all async operations, (2) Design empty states with domain-specific CTAs, (3) Leverage Tailwind v4 container queries for component-level responsiveness, (4) Implement Motion with FrozenRouter pattern for App Router compatibility, (5) Normalize chart data to realistic ML training ranges (loss: 0.1-5.0, GPU utilization: 40-85%, learning rates: 0.001-0.01).
 
 ## Standard Stack
 
 ### Core
 | Library | Version | Purpose | Why Standard |
 |---------|---------|---------|--------------|
-| **framer-motion** | ^11.18.0 | Page transitions & animations | Industry standard for React animations with Next.js App Router support via FrozenRouter pattern |
+| **motion** | ^12.x | Page transitions & animations | Industry standard for React animations (formerly framer-motion), Next.js App Router support via FrozenRouter pattern. Docs: https://motion.dev/docs/react |
 | **@shadcn/ui skeleton** | latest | Loading placeholders | Official shadcn component with Tailwind v4 compatibility |
 | **@shadcn/ui spinner** | latest | Action loading indicators | Official component using lucide-react LoaderIcon with animate-spin |
 | **Tailwind v4** | 4.1.18 (installed) | Responsive design | Built-in container queries, mobile-first breakpoints, no config file needed |
@@ -33,13 +33,13 @@ The existing stack is well-positioned for this phase: Tailwind v4 with built-in 
 ### Alternatives Considered
 | Instead of | Could Use | Tradeoff |
 |------------|-----------|----------|
-| Framer Motion | React Spring | React Spring has better physics-based animations, but Framer Motion has better Next.js App Router support and simpler API |
+| Motion | React Spring | React Spring has better physics-based animations, but Motion has better Next.js App Router support and simpler API |
 | Skeleton component | Custom shimmer CSS | Custom CSS provides more control but skeleton component ensures consistency with design system |
 | Container queries | Media queries only | Container queries enable component-level responsiveness; media queries are viewport-only but have wider support |
 
 **Installation:**
 ```bash
-pnpm install framer-motion
+pnpm install motion
 pnpm dlx shadcn@latest add skeleton
 pnpm dlx shadcn@latest add spinner
 ```
@@ -62,7 +62,7 @@ app/(dashboard)/
 │   └── constants/
 │       └── ml-metrics.ts    # Realistic ML value ranges
 └── providers/
-    └── layout-transition.tsx # Framer Motion wrapper
+    └── layout-transition.tsx # Motion wrapper
 ```
 
 ### Pattern 1: Skeleton Loading States
@@ -145,7 +145,7 @@ export function MetricsCard() {
 }
 ```
 
-### Pattern 4: Framer Motion Page Transitions (Next.js App Router)
+### Pattern 4: Motion Page Transitions (Next.js App Router)
 **What:** Smooth page transitions using FrozenRouter pattern to prevent App Router unmounting during animations
 **When to use:** Root layout for app-wide transitions
 **Example:**
@@ -156,7 +156,7 @@ export function MetricsCard() {
 import { useContext, useEffect, useRef } from "react"
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime"
 import { useSelectedLayoutSegment } from "next/navigation"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion } from "motion/react"
 
 // Preserve previous router context during animations
 function FrozenRouter({ children }: { children: React.ReactNode }) {
@@ -281,7 +281,7 @@ export function DeployButton() {
 | Container-based responsive | JavaScript ResizeObserver | Tailwind v4 @container queries | Native CSS, better performance, no JS needed |
 | Chart responsiveness | Manual dimension calculations | Recharts ResponsiveContainer | Handles window resize, maintains aspect ratio, debounced updates |
 | Empty state templates | Ad-hoc empty divs | Reusable EmptyState components | Consistency, proper ARIA labels, standard CTA patterns |
-| Reduced motion detection | Custom matchMedia | Framer Motion's useReducedMotion hook | Handles accessibility, automatic animation disabling, React integration |
+| Reduced motion detection | Custom matchMedia | Motion's useReducedMotion hook | Handles accessibility, automatic animation disabling, React integration |
 
 **Key insight:** UI polish touches every component, so consistency matters more than customization. Use design system components and established patterns to avoid creating subtle UX inconsistencies across the app.
 
@@ -293,7 +293,7 @@ export function DeployButton() {
 **How to avoid:** Match skeleton dimensions exactly to final rendered content; use same card/padding/spacing structure
 **Warning signs:** Content "jumps" when loading completes; scrollbar appears/disappears suddenly
 
-### Pitfall 2: Framer Motion Breaks on App Router Navigation
+### Pitfall 2: Motion Breaks on App Router Navigation
 **What goes wrong:** Animations don't complete; pages flash instead of smoothly transitioning
 **Why it happens:** Next.js App Router aggressively updates context, unmounting components mid-animation
 **How to avoid:** Use FrozenRouter pattern to freeze router context during exit animations
@@ -314,7 +314,7 @@ export function DeployButton() {
 ### Pitfall 5: Animating Expensive Properties
 **What goes wrong:** Animations feel janky, drop frames, or cause performance issues
 **Why it happens:** Animating properties that trigger layout recalculation (width, height, top, left, margin)
-**How to avoid:** Only animate `transform` and `opacity` for smooth 60fps; use Framer Motion's `layout` prop for layout animations
+**How to avoid:** Only animate `transform` and `opacity` for smooth 60fps; use Motion's `layout` prop for layout animations
 **Warning signs:** Animation stutter; frame drops in DevTools performance panel; poor FPS on mobile
 
 ### Pitfall 6: Sidebar v3 Syntax in Tailwind v4
@@ -332,7 +332,7 @@ export function DeployButton() {
 ### Pitfall 8: Missing Reduced Motion Support
 **What goes wrong:** Users with motion sensitivity experience discomfort or accessibility issues
 **Why it happens:** Animations implemented without checking `prefers-reduced-motion` media query
-**How to avoid:** Use Framer Motion's `useReducedMotion` hook or MotionConfig's `reducedMotion="user"` setting; replace transform animations with opacity-only
+**How to avoid:** Use Motion's `useReducedMotion` hook or MotionConfig's `reducedMotion="user"` setting; replace transform animations with opacity-only
 **Warning signs:** WCAG accessibility violations; user complaints about motion sickness; failing automated accessibility audits
 
 ## Code Examples
@@ -464,10 +464,10 @@ export function MetricsCard({ title, value, change }) {
 }
 ```
 
-### Accessible Framer Motion with Reduced Motion
+### Accessible Motion with Reduced Motion
 ```typescript
 // Source: https://motion.dev/docs/react-accessibility
-import { motion, useReducedMotion } from "framer-motion"
+import { motion, useReducedMotion } from "motion/react"
 
 export function AnimatedCard({ children }) {
   const shouldReduceMotion = useReducedMotion()
@@ -485,7 +485,7 @@ export function AnimatedCard({ children }) {
 }
 
 // Alternative: Global config
-import { MotionConfig } from "framer-motion"
+import { MotionConfig } from "motion/react"
 
 export function Providers({ children }) {
   return (
@@ -574,11 +574,11 @@ export function generateRealisticLossCurve(steps: number) {
 | Pages Router page transitions | App Router with FrozenRouter pattern | Next.js 13+ App Router (2023) | App Router's streaming requires context freezing to prevent animation breaks |
 | Generic "Loading..." text | Skeleton screens matching content | UX trend (2020+) | Perceived performance improvement; users see structure immediately |
 | Spinner-only loading | Skeleton + Spinner hybrid | Modern practice (2023+) | Skeletons for data fetch, spinners for actions (deploy, submit) |
-| Custom animation libraries | Framer Motion with useReducedMotion | WCAG 2.1+ requirement (2018) | Accessibility compliance; respects user motion preferences |
+| Custom animation libraries | Motion with useReducedMotion | WCAG 2.1+ requirement (2018) | Accessibility compliance; respects user motion preferences |
 | Tailwind v3 `w-[--var]` syntax | Tailwind v4 `w-(--var)` syntax | Tailwind v4 (2024) | Explicit CSS variable syntax; auto-var inference removed |
 
 **Deprecated/outdated:**
-- **Framer Motion's `initial={false}` for no animation:** Use `useReducedMotion` hook instead for accessibility
+- **Motion's `initial={false}` for no animation:** Use `useReducedMotion` hook instead for accessibility
 - **Manual window.matchMedia for mobile detection:** Use Tailwind breakpoints or existing `useIsMobile` hook
 - **@tailwindcss/container-queries plugin:** Now built into Tailwind v4 core, plugin no longer needed
 - **Generic "No data" messages:** Modern UX requires specific context and CTAs for empty states
@@ -596,7 +596,7 @@ export function generateRealisticLossCurve(steps: number) {
    - Recommendation: Use layout.tsx loading.tsx for route-level skeleton, Suspense for component-level data (charts, tables)
 
 3. **How to handle reduced motion for chart animations?**
-   - What we know: Framer Motion has `useReducedMotion`; Recharts has `animationDuration` prop
+   - What we know: Motion has `useReducedMotion`; Recharts has `animationDuration` prop
    - What's unclear: Whether to completely disable chart animations or just reduce duration
    - Recommendation: Reduce `animationDuration` from 300ms to 0ms when `prefers-reduced-motion` is active; keeps functionality, respects accessibility
 
@@ -612,7 +612,7 @@ export function generateRealisticLossCurve(steps: number) {
 - [shadcn/ui Spinner Component](https://ui.shadcn.com/docs/components/radix/spinner) - Official spinner docs with lucide-react
 - [shadcn/ui Sidebar Component](https://ui.shadcn.com/docs/components/radix/sidebar) - Responsive sidebar patterns, mobile handling
 - [Tailwind CSS v4 Responsive Design](https://tailwindcss.com/docs/responsive-design) - Breakpoints, container queries, mobile-first approach
-- [Framer Motion: Solving App Router Transitions](https://www.imcorfitz.com/posts/adding-framer-motion-page-transitions-to-next-js-app-router) - Complete FrozenRouter pattern implementation
+- [Motion: Solving App Router Transitions](https://www.imcorfitz.com/posts/adding-framer-motion-page-transitions-to-next-js-app-router) - Complete FrozenRouter pattern implementation
 - [React Suspense Documentation](https://react.dev/reference/react/Suspense) - Official React Suspense patterns
 - [Google ML: Interpreting Loss Curves](https://developers.google.com/machine-learning/crash-course/overfitting/interpreting-loss-curves) - Realistic loss progression patterns
 - [Motion: Create Accessible Animations](https://motion.dev/docs/react-accessibility) - Reduced motion implementation
@@ -624,7 +624,7 @@ export function generateRealisticLossCurve(steps: number) {
 - [Databricks: How Not to Scale Deep Learning](https://www.databricks.com/blog/2019/08/15/how-not-to-scale-deep-learning-in-6-easy-steps.html) - Batch size, learning rate relationships
 - [Next.js Loading UI and Streaming](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming) - loading.tsx patterns with Suspense
 - [Tailwind Container Queries (v4)](https://tailkits.com/blog/tailwind-container-queries/) - @container usage patterns
-- [Framer Motion Performance Best Practices](https://blog.pixelfreestudio.com/how-to-use-framer-motion-for-advanced-animations-in-react/) - transform/opacity optimization
+- [Motion Performance Best Practices](https://blog.pixelfreestudio.com/how-to-use-framer-motion-for-advanced-animations-in-react/) - transform/opacity optimization
 - [Skeleton Loading CSS Shimmer](https://codewithbilal.medium.com/how-to-create-a-skeleton-loading-shimmer-effect-with-pure-css-7f9041ec9134) - CSS animation techniques
 
 ### Tertiary (LOW confidence, needs validation)
@@ -635,8 +635,8 @@ export function generateRealisticLossCurve(steps: number) {
 ## Metadata
 
 **Confidence breakdown:**
-- Standard stack: HIGH - All libraries verified through official docs and package.json; Framer Motion Next.js App Router pattern confirmed via multiple sources
-- Architecture: HIGH - Patterns extracted from official docs (shadcn, Tailwind, Framer Motion) and verified implementations
+- Standard stack: HIGH - All libraries verified through official docs and package.json; Motion Next.js App Router pattern confirmed via multiple sources
+- Architecture: HIGH - Patterns extracted from official docs (shadcn, Tailwind, Motion) and verified implementations
 - Pitfalls: MEDIUM-HIGH - Layout shift, animation breaks, mobile charts are documented issues; Tailwind v4 sidebar syntax confirmed from project memory; ML metrics verified against Google/NVIDIA research
 - Realistic ML values: MEDIUM - Loss curve patterns verified (Google ML course), GPU utilization ranges verified (Neptune.ai, NVIDIA research), but specific ranges may vary by model type
 - Empty states: MEDIUM - Design patterns consistent across multiple UX sources, but specific implementation details should be validated with actual user testing
@@ -645,18 +645,18 @@ export function generateRealisticLossCurve(steps: number) {
 **Valid until:** 2026-03-17 (30 days - stable domains like responsive design and loading patterns)
 
 **Key assumption requiring validation:**
-- Framer Motion compatibility with React 19 and Next.js 16 (research sources cover Next.js 15/React 18; need to verify no breaking changes)
+- Motion compatibility with React 19 and Next.js 16 (research sources cover Next.js 15/React 18; need to verify no breaking changes)
 - Container query browser support is universal (may need fallback for older browsers, though Tailwind v4 assumes modern browser baseline)
 
 **Areas of full confidence (can state as fact):**
 - Tailwind v4 has built-in container queries with @container syntax
 - shadcn/ui Skeleton and Spinner components exist and are Tailwind v4 compatible
-- Next.js App Router requires FrozenRouter pattern for smooth Framer Motion transitions
+- Next.js App Router requires FrozenRouter pattern for smooth Motion transitions
 - Recharts ResponsiveContainer handles chart responsiveness automatically
 - Project already has Recharts, Tailwind v4, shadcn/ui, lucide-react, and use-debounce installed
 
 **Areas requiring implementation validation:**
-- Exact Framer Motion animation timing values (0.2s vs 0.3s) should be tuned based on feel
+- Exact Motion animation timing values (0.2s vs 0.3s) should be tuned based on feel
 - Specific skeleton dimensions should match actual rendered components
 - ML metric ranges should be validated against actual LiquidAI model training logs if available
 - Empty state CTAs should be A/B tested for conversion if metrics collection exists
